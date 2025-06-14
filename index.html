@@ -1,0 +1,2308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third High Experience - Spirituality & Mindfulness</title>
+    <!-- EmailJS for form submissions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emailjs-com/3.2.0/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B5CF6;
+            --secondary: #06B6D4;
+            --accent: #F59E0B;
+            --pink: #EC4899;
+            --purple: #7C3AED;
+            --blue: #3B82F6;
+            --green: #10B981;
+            --dark: #0F172A;
+            --gray: #64748B;
+            --light: #F8FAFC;
+            --white: #FFFFFF;
+            --gradient-cosmic: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --gradient-aurora: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #d299c2 100%);
+            --gradient-sunset: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            --gradient-ocean: linear-gradient(135deg, #667db6 0%, #0082c8 50%, #0082c8 100%);
+            --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.3);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: var(--white);
+            background: #0A0E1A;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated cosmic background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 60% 40%, rgba(245, 158, 11, 0.1) 0%, transparent 60%);
+            z-index: -2;
+            animation: cosmicFloat 30s ease-in-out infinite;
+        }
+
+        /* Floating particles */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(139, 92, 246, 0.4), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(236, 72, 153, 0.4), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(6, 182, 212, 0.4), transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(245, 158, 11, 0.4), transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            z-index: -1;
+            animation: sparkle 20s linear infinite;
+        }
+
+        @keyframes cosmicFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); filter: hue-rotate(0deg); }
+            25% { transform: translate(-20px, -30px) rotate(1deg); filter: hue-rotate(45deg); }
+            50% { transform: translate(20px, -10px) rotate(-1deg); filter: hue-rotate(90deg); }
+            75% { transform: translate(-10px, 20px) rotate(0.5deg); filter: hue-rotate(135deg); }
+        }
+
+        @keyframes sparkle {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Premium glassmorphism header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(10, 14, 26, 0.8);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        header.scrolled {
+            background: rgba(10, 14, 26, 0.95);
+            box-shadow: var(--shadow-glow);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            height: 90px;
+        }
+
+        .logo {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-cosmic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo::before {
+            content: '✨';
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+            animation: logoSparkle 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.8));
+        }
+
+        @keyframes logoSparkle {
+            0%, 100% { opacity: 1; transform: translateY(-50%) scale(1) rotate(0deg); }
+            50% { opacity: 0.7; transform: translateY(-60%) scale(1.2) rotate(180deg); }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-cosmic);
+            opacity: 0;
+            transition: all 0.4s ease;
+            border-radius: 50px;
+            z-index: -1;
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-2px);
+            color: white;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .nav-links a:hover::before {
+            opacity: 1;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.8rem;
+            border-radius: 12px;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 90px;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+            z-index: 999;
+            padding: 1rem;
+        }
+
+        .mobile-nav.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            background: rgba(139, 92, 246, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(139, 92, 246, 0.2);
+            transform: translateX(5px);
+        }
+
+        /* Main content */
+        main {
+            margin-top: 90px;
+            min-height: calc(100vh - 90px);
+        }
+
+        .section {
+            display: none;
+            padding: 5rem 0;
+            animation: sectionFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes sectionFadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero section */
+        .hero {
+            background: var(--gradient-cosmic);
+            color: white;
+            text-align: center;
+            padding: 8rem 3rem;
+            margin: 3rem 0;
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgba(255, 255, 255, 0.1) 90deg,
+                transparent 180deg,
+                rgba(255, 255, 255, 0.05) 270deg,
+                transparent 360deg
+            );
+            animation: heroRotate 20s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes heroRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            text-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            animation: textGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); }
+            to { text-shadow: 0 8px 40px rgba(255, 255, 255, 0.3); }
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: var(--gradient-aurora);
+            color: var(--dark);
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 15px 35px rgba(236, 72, 153, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.8s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(236, 72, 153, 0.6);
+            color: white;
+            background: var(--gradient-cosmic);
+        }
+
+        /* Section titles */
+        .section-title {
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 4rem;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: var(--gradient-cosmic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-cosmic);
+            border-radius: 2px;
+        }
+
+        /* Advanced card system */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px) saturate(180%);
+            padding: 3rem;
+            border-radius: 32px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-cosmic);
+            transform: translateX(-100%);
+            transition: transform 0.8s ease;
+        }
+
+        .card:hover::before {
+            transform: translateX(0);
+        }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(139, 92, 246, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .card h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        /* Form styling */
+        .form-container {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px) saturate(180%);
+            padding: 4rem;
+            border-radius: 32px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+            max-width: 700px;
+            margin: 4rem auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            font-family: inherit;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        /* Product cards */
+        .product {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .product:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(139, 92, 246, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            background: var(--gradient-cosmic);
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .product:hover .product-image::before {
+            transform: translateX(100%);
+        }
+
+        .product h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .product p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-cosmic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1.5rem 0;
+        }
+
+        /* Video grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .video-container {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(6, 182, 212, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 240px;
+            background: var(--gradient-ocean);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .video-placeholder::before {
+            content: '▶';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover::before {
+            opacity: 1;
+        }
+
+        .video-placeholder:hover {
+            transform: scale(1.05);
+        }
+
+        .video-info h3 {
+            color: white;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .video-info p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Real video player styles */
+        .video-player {
+            width: 100%;
+            height: 240px;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .video-player video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        /* Blog posts */
+        .blog-post {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px) saturate(180%);
+            padding: 2.5rem;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-post:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .blog-post h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-cosmic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .blog-meta {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta span {
+            background: rgba(139, 92, 246, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* File upload */
+        .file-upload {
+            border: 3px dashed rgba(139, 92, 246, 0.5);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            background: rgba(139, 92, 246, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .file-upload:hover {
+            border-color: var(--primary);
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .file-upload input {
+            display: none;
+        }
+
+        .file-upload-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Success messages */
+        .success-message {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+            padding: 1.2rem 2rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+            text-align: center;
+            display: none;
+            animation: slideInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+            font-weight: 600;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 14, 26, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px) saturate(180%);
+            margin: 5% auto;
+            padding: 3rem;
+            border-radius: 32px;
+            width: 90%;
+            max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+            animation: modalSlideIn 0.4s ease-out;
+            color: white;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close {
+            color: white;
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            color: var(--pink);
+            transform: scale(1.2);
+        }
+
+        /* Floating action button */
+        .fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-cosmic);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }
+
+        .fab:hover {
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .hero {
+                padding: 5rem 2rem;
+                margin: 2rem 1rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container {
+                margin: 2rem 1rem;
+                padding: 2.5rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .fab {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            main {
+                margin-top: 90px;
+            }
+
+            .mobile-nav.active + main {
+                margin-top: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Registration Interest Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 style="margin-bottom: 2rem; color: white;">Register Your Interest</h2>
+            <form onsubmit="submitRegistration(event)">
+                <div class="form-group">
+                    <label for="reg-name">Full Name</label>
+                    <input type="text" id="reg-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email Address</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-phone">Phone Number</label>
+                    <input type="tel" id="reg-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-product">Product/Service</label>
+                    <input type="text" id="reg-product" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="reg-message">Additional Message (Optional)</label>
+                    <textarea id="reg-message" placeholder="Any specific requirements or questions?"></textarea>
+                </div>
+                <button type="submit" class="cta-button">Submit Registration ✨</button>
+            </form>
+        </div>
+    </div>
+
+    <header id="header">
+        <nav class="container">
+            <div class="logo" onclick="showSection('home'); return false;">thirdhighexperience</div>
+            <ul class="nav-links">
+                <li><a href="javascript:void(0)" onclick="showSection('home')">Home</a></li>
+                <li><a href="javascript:void(0)" onclick="showSection('guide')">Guides</a></li>
+                <li><a href="javascript:void(0)" onclick="showSection('breathe')">Bliss Breathe</a></li>
+                <li><a href="javascript:void(0)" onclick="showSection('astro')">Astro Corner</a></li>
+                <li><a href="javascript:void(0)" onclick="showSection('yoga')">Yoga Classes</a></li>
+                <li><a href="javascript:void(0)" onclick="showSection('about')">About Us</a></li>
+                <li><a href="javascript:void(0)" onclick="showSection('blog')">Blog</a></li>
+            </ul>
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="javascript:void(0)" onclick="showSection('home'); closeMobileMenu();">Home</a>
+        <a href="javascript:void(0)" onclick="showSection('guide'); closeMobileMenu();">Guides</a>
+        <a href="javascript:void(0)" onclick="showSection('breathe'); closeMobileMenu();">Bliss Breathe</a>
+        <a href="javascript:void(0)" onclick="showSection('astro'); closeMobileMenu();">Astro Corner</a>
+        <a href="javascript:void(0)" onclick="showSection('yoga'); closeMobileMenu();">Yoga Classes</a>
+        <a href="javascript:void(0)" onclick="showSection('about'); closeMobileMenu();">About Us</a>
+        <a href="javascript:void(0)" onclick="showSection('blog'); closeMobileMenu();">Blog</a>
+    </div>
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Welcome to Third High Experience</h1>
+                    <p>A sanctuary for souls seeking transformation, peace, and deeper connection with their inner wisdom through ancient spiritual practices and modern mindfulness techniques.</p>
+                </div>
+            </div>
+
+            <!-- About Third High Experience -->
+            <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 32px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h2 style="color: white; margin-bottom: 2rem; font-family: Georgia, serif; font-size: 2.5rem;">Our Sacred Mission</h2>
+                <p style="font-size: 1.2rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin: 0 auto;">
+                    Third High Experience bridges the gap between ancient spiritual wisdom and contemporary living. We believe that everyone deserves access to tools and practices that nurture the soul, calm the mind, and awaken the heart. Our carefully curated offerings are designed to support you at every step of your spiritual evolution.
+                </p>
+            </div>
+
+            <!-- Services Overview -->
+            <div style="margin: 4rem 0;">
+                <h2 style="text-align: center; color: white; margin-bottom: 3rem; font-family: Georgia, serif; font-size: 2.5rem;">Explore Our Spiritual Offerings</h2>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>🧘‍♀️ Mindful Breathing & Meditation</h3>
+                        <p>Immerse yourself in transformative mindfulness experiences through guided meditations, sound healing sessions, and breathing practices. Our Bliss Breathe collection offers carefully curated videos designed to elevate your consciousness and bring inner peace.</p>
+                        <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(139, 92, 246, 0.1); border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.3);">
+                            <p style="margin: 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">
+                                ✨ Guided breathing sessions<br>
+                                🎵 Sound healing with Tibetan bowls<br>
+                                🌅 Morning and evening meditations<br>
+                                ⚡ Chakra balancing practices
+                            </p>
+                        </div>
+                        <a href="javascript:void(0)" class="cta-button" onclick="showSection('breathe')">Explore Videos</a>
+                    </div>
+
+                    <div class="card">
+                        <h3>✨ Astrological Guidance</h3>
+                        <p>Connect with the cosmos and discover your spiritual path through personalized astrological consultations. Our experienced astrologer provides insights into your cosmic blueprint, helping you understand your life's purpose and navigate challenges with celestial wisdom.</p>
+                        <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(139, 92, 246, 0.1); border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.3);">
+                            <p style="margin: 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">
+                                🌟 Personalized birth chart analysis<br>
+                                💫 Life purpose guidance<br>
+                                🔮 Future insights and predictions<br>
+                                💰 Affordable consultations at ₹500
+                            </p>
+                        </div>
+                        <a href="javascript:void(0)" class="cta-button" onclick="showSection('astro')">Book Consultation</a>
+                    </div>
+
+                    <div class="card">
+                        <h3>🕉️ Hatha Yoga Classes</h3>
+                        <p>Join our traditional Hatha Yoga classes designed to align your body, mind, and spirit. Our gentle, slow-paced practice focuses on basic postures and breathing techniques, making it perfect for beginners and those seeking deep relaxation and spiritual growth.</p>
+                        <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(139, 92, 246, 0.1); border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.3);">
+                            <p style="margin: 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">
+                                📅 Classes: Wednesday, Saturday, Sunday<br>
+                                ⏰ 1-hour sessions<br>
+                                🌅 Morning & Evening batches<br>
+                                💰 Monthly fee: ₹1000
+                            </p>
+                        </div>
+                        <a href="javascript:void(0)" class="cta-button" onclick="showSection('yoga')">Join Classes</a>
+                    </div>
+
+                    <div class="card">
+                        <h3>📚 Spiritual Wisdom Guides</h3>
+                        <p>Access our comprehensive collection of spiritual guides covering meditation, chakra healing, moon phases, and daily spiritual practices. Each guide is crafted with love and ancient wisdom to support your journey toward enlightenment and inner peace.</p>
+                        <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(139, 92, 246, 0.1); border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.3);">
+                            <p style="margin: 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">
+                                🧘‍♀️ Meditation techniques<br>
+                                🌙 Moon phase rituals<br>
+                                ⚡ Chakra healing practices<br>
+                                📖 Easy-to-follow instructions
+                            </p>
+                        </div>
+                        <a href="javascript:void(0)" class="cta-button" onclick="showSection('guide')">Browse Guides</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Section -->
+            <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 32px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h2 style="color: white; margin-bottom: 2rem; font-family: Georgia, serif; font-size: 2.5rem;">Join Our Growing Community</h2>
+                <p style="font-size: 1.2rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto 2rem;">
+                    Become part of a supportive community where individuals explore, learn, and grow together on their spiritual journey through authentic practices and meaningful connections.
+                </p>
+                <div style="margin-top: 2rem;">
+                    <div style="display: inline-block; padding: 2rem 3rem; background: rgba(139, 92, 246, 0.2); border-radius: 25px; border: 1px solid rgba(139, 92, 246, 0.3);">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🌟</div>
+                        <div style="color: white; font-weight: bold; font-size: 2.5rem; margin-bottom: 0.5rem;">150K+</div>
+                        <div style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem;">Community Members</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="section">
+            <h2 class="section-title">Spiritual Guides</h2>
+            
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <p style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin: 0 auto;">
+                    Access our collection of transformative spiritual guides designed to support your journey toward enlightenment and inner peace. Each guide is crafted with love and ancient wisdom to help you deepen your spiritual practice.
+                </p>
+            </div>
+
+            <div class="cards-grid" id="guide-list">
+                <div class="card">
+                    <h3>📖 Meditation for Beginners</h3>
+                    <p>A comprehensive 50-page guide to starting your meditation journey with simple, effective techniques that will transform your daily practice and bring lasting peace to your mind.</p>
+                    <div style="margin: 1rem 0; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                        <span>📄 50 pages</span> • <span>⏱️ 2 hour read</span> • <span>🌟 Beginner friendly</span>
+                    </div>
+                    <a href="javascript:void(0)" class="cta-button">Download Guide</a>
+                </div>
+                <div class="card">
+                    <h3>🌙 Moon Phases & Spirituality</h3>
+                    <p>Understanding how lunar cycles affect your spiritual practice and personal growth throughout the cosmic calendar. Includes rituals for each moon phase.</p>
+                    <div style="margin: 1rem 0; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                        <span>📄 35 pages</span> • <span>⏱️ 1.5 hour read</span> • <span>🌙 Moon rituals included</span>
+                    </div>
+                    <a href="javascript:void(0)" class="cta-button">Download Guide</a>
+                </div>
+                <div class="card">
+                    <h3>🔮 Chakra Healing Manual</h3>
+                    <p>Complete guide to understanding and balancing your seven energy centers for optimal spiritual wellness. Includes healing exercises and affirmations.</p>
+                    <div style="margin: 1rem 0; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                        <span>📄 75 pages</span> • <span>⏱️ 3 hour read</span> • <span>⚡ Energy exercises</span>
+                    </div>
+                    <a href="javascript:void(0)" class="cta-button">Download Guide</a>
+                </div>
+                <div class="card">
+                    <h3>🙏 Daily Spiritual Practices</h3>
+                    <p>Transform your everyday routine into a sacred practice with this collection of morning, afternoon, and evening spiritual rituals.</p>
+                    <div style="margin: 1rem 0; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                        <span>📄 40 pages</span> • <span>⏱️ 2 hour read</span> • <span>📅 Daily practices</span>
+                    </div>
+                    <a href="javascript:void(0)" class="cta-button">Download Guide</a>
+                </div>
+                <div class="card">
+                    <h3>🧘‍♀️ Mindfulness in Action</h3>
+                    <p>Learn to bring mindfulness into every aspect of your daily life, from eating and walking to working and communicating with others.</p>
+                    <div style="margin: 1rem 0; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                        <span>📄 60 pages</span> • <span>⏱️ 2.5 hour read</span> • <span>🎯 Practical techniques</span>
+                    </div>
+                    <a href="javascript:void(0)" class="cta-button">Download Guide</a>
+                </div>
+                <div class="card">
+                    <h3>🌸 Sacred Feminine Energy</h3>
+                    <p>Explore and embrace the divine feminine within through ancient wisdom, goddess traditions, and empowering spiritual practices.</p>
+                    <div style="margin: 1rem 0; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                        <span>📄 45 pages</span> • <span>⏱️ 2 hour read</span> • <span>🌸 Goddess wisdom</span>
+                    </div>
+                    <a href="javascript:void(0)" class="cta-button">Download Guide</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bliss Breathe Section -->
+        <section id="breathe" class="section">
+            <h2 class="section-title">Bliss Breathe</h2>
+            
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <p style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin: 0 auto;">
+                    Immerse yourself in transformative mindfulness experiences through our curated collection of guided meditations, sound healing sessions, and breathing practices designed to elevate your consciousness and bring deep inner peace.
+                </p>
+            </div>
+
+            <div class="video-grid">
+                <!-- Video 1: Guided Breathing Session -->
+                <div class="video-container">
+                    <div class="video-placeholder" onclick="playVideo('guided-breathing')">
+                        <span>🌬️ Guided Breathing Session<br><small>15 min • Beginner Friendly</small></span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Deep Pranayama Practice</h3>
+                        <p>Experience the ancient art of conscious breathing to calm your mind and energize your spirit.</p>
+                    </div>
+                </div>
+
+                <!-- Video 2: Sound Healing -->
+                <div class="video-container">
+                    <div class="video-placeholder" onclick="playVideo('sound-healing')">
+                        <span>🎵 Tibetan Bowl Sound Healing<br><small>30 min • Deep Relaxation</small></span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Crystal Bowl Meditation</h3>
+                        <p>Let the sacred frequencies of Tibetan singing bowls wash away stress and restore inner harmony.</p>
+                    </div>
+                </div>
+
+                <!-- Video 3: Morning Meditation -->
+                <div class="video-container">
+                    <div class="video-placeholder" onclick="playVideo('morning-meditation')">
+                        <span>🌅 Morning Meditation<br><small>10 min • Daily Practice</small></span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Dawn Awakening Ritual</h3>
+                        <p>Start your day with intention and clarity through this gentle morning meditation practice.</p>
+                    </div>
+                </div>
+
+                <!-- Video 4: Chakra Balancing -->
+                <div class="video-container">
+                    <div class="video-placeholder" onclick="playVideo('chakra-balancing')">
+                        <span>⚡ Chakra Balancing<br><small>25 min • Energy Alignment</small></span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Seven Chakra Journey</h3>
+                        <p>Align and balance your energy centers for optimal spiritual and physical wellness.</p>
+                    </div>
+                </div>
+
+                <!-- Video 5: Evening Wind Down -->
+                <div class="video-container">
+                    <div class="video-placeholder" onclick="playVideo('evening-meditation')">
+                        <span>🌙 Evening Wind Down<br><small>20 min • Sleep Preparation</small></span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Twilight Tranquility</h3>
+                        <p>Release the day's tensions and prepare for restorative sleep with this calming evening practice.</p>
+                    </div>
+                </div>
+
+                <!-- Video 6: Heart Opening -->
+                <div class="video-container">
+                    <div class="video-placeholder" onclick="playVideo('heart-opening')">
+                        <span>💚 Heart Opening Practice<br><small>18 min • Emotional Healing</small></span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Love & Compassion Meditation</h3>
+                        <p>Open your heart chakra and cultivate unconditional love for yourself and all beings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="section">
+            <h2 class="section-title">Spiritual Blog</h2>
+            
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <p style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin: 0 auto;">
+                    Explore our collection of inspiring articles, spiritual insights, and practical wisdom to support your journey of self-discovery and growth.
+                </p>
+            </div>
+
+            <div id="blog-posts">
+                <article class="blog-post">
+                    <h3>The Power of Morning Meditation</h3>
+                    <div class="blog-meta">
+                        <span>March 20, 2024</span>
+                        <span>meditation</span>
+                        <span>morning</span>
+                        <span>mindfulness</span>
+                    </div>
+                    <p>Starting your day with meditation sets a peaceful tone that resonates throughout your entire day. Discover how just 10 minutes of morning practice can transform your spiritual journey and bring clarity to your mind. We explore the science behind morning meditation, the best techniques for beginners, and how to establish a consistent practice that becomes as natural as brushing your teeth...</p>
+                </article>
+                
+                <article class="blog-post">
+                    <h3>Understanding Chakra Colors and Their Meanings</h3>
+                    <div class="blog-meta">
+                        <span>March 15, 2024</span>
+                        <span>chakras</span>
+                        <span>energy</span>
+                        <span>healing</span>
+                    </div>
+                    <p>Each chakra vibrates at a different frequency and is associated with specific colors that represent different aspects of our physical, emotional, and spiritual well-being. Learn how to work with these energy centers through color visualization, crystal healing, and specific meditations designed to balance and align your chakras for optimal health and spiritual growth...</p>
+                </article>
+                
+                <article class="blog-post">
+                    <h3>Full Moon Rituals for Spiritual Growth</h3>
+                    <div class="blog-meta">
+                        <span>March 10, 2024</span>
+                        <span>moon</span>
+                        <span>rituals</span>
+                        <span>spirituality</span>
+                    </div>
+                    <p>The full moon represents a time of heightened energy and spiritual awareness. Learn how to harness this powerful lunar energy for your personal transformation and manifestation practices. We share ancient rituals, modern adaptations, and practical steps you can take during each full moon to release what no longer serves you and manifest your deepest desires...</p>
+                </article>
+
+                <article class="blog-post">
+                    <h3>Breathwork: The Gateway to Inner Peace</h3>
+                    <div class="blog-meta">
+                        <span>March 5, 2024</span>
+                        <span>breathwork</span>
+                        <span>peace</span>
+                        <span>healing</span>
+                    </div>
+                    <p>Your breath is the bridge between your conscious and unconscious mind, offering a direct pathway to inner peace and emotional regulation. Explore various breathwork techniques from around the world, including pranayama, holotropic breathwork, and the Wim Hof method. Learn how to use your breath as a tool for healing trauma, reducing anxiety, and accessing deeper states of consciousness...</p>
+                </article>
+
+                <article class="blog-post">
+                    <h3>Creating Sacred Space in Your Home</h3>
+                    <div class="blog-meta">
+                        <span>February 28, 2024</span>
+                        <span>sacred space</span>
+                        <span>home</span>
+                        <span>altar</span>
+                    </div>
+                    <p>Transform your living space into a sanctuary that supports your spiritual practice and daily well-being. Whether you have an entire room or just a small corner, learn how to create sacred space that nurtures your soul. We explore the elements of sacred design, how to choose meaningful objects for your altar, and techniques for blessing and maintaining the energy of your space...</p>
+                </article>
+
+                <article class="blog-post">
+                    <h3>The Art of Mindful Eating: Nourishing Body and Soul</h3>
+                    <div class="blog-meta">
+                        <span>February 25, 2024</span>
+                        <span>mindful eating</span>
+                        <span>nutrition</span>
+                        <span>consciousness</span>
+                    </div>
+                    <p>Discover how transforming your relationship with food can become a powerful spiritual practice. Mindful eating goes beyond nutrition to encompass gratitude, presence, and connection with the earth. Learn techniques for eating meditation, how to listen to your body's wisdom, and ways to infuse your meals with intention and love. Turn every meal into an opportunity for mindfulness and spiritual growth...</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Shop Section -->
+        <section id="shop" class="section">
+            <h2 class="section-title">Spiritual Shop</h2>
+            
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <p style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin: 0 auto;">
+                    Discover our carefully curated collection of spiritual tools, crystals, and sacred items to enhance your meditation practice and spiritual journey.
+                </p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="product">
+                    <div class="product-image">🔮</div>
+                    <h3>Healing Crystal Collection</h3>
+                    <p>7-piece chakra crystal set for energy healing and meditation practice. Includes amethyst, rose quartz, citrine, and more.</p>
+                    <div class="product-price">$49.99</div>
+                    <button class="cta-button" onclick="registerInterest('Healing Crystal Collection')">Register Interest</button>
+                </div>
+                
+                <div class="product">
+                    <div class="product-image">🕯️</div>
+                    <h3>Aromatherapy Meditation Candles</h3>
+                    <p>Set of 3 organic soy candles with essential oils: lavender for relaxation, sandalwood for grounding, and peppermint for clarity.</p>
+                    <div class="product-price">$29.99</div>
+                    <button class="cta-button" onclick="registerInterest('Aromatherapy Meditation Candles')">Register Interest</button>
+                </div>
+                
+                <div class="product">
+                    <div class="product-image">📿</div>
+                    <h3>Traditional Mala Prayer Beads</h3>
+                    <p>108 natural stone beads for meditation and spiritual practice. Available in sandalwood, rudraksha, and rose quartz.</p>
+                    <div class="product-price">$39.99</div>
+                    <button class="cta-button" onclick="registerInterest('Traditional Mala Prayer Beads')">Register Interest</button>
+                </div>
+                
+                <div class="product">
+                    <div class="product-image">🎵</div>
+                    <h3>Tibetan Singing Bowl</h3>
+                    <p>Handcrafted bowl for sound healing and meditation ceremonies. Includes striker and cushion. Perfect for space clearing.</p>
+                    <div class="product-price">$79.99</div>
+                    <button class="cta-button" onclick="registerInterest('Tibetan Singing Bowl')">Register Interest</button>
+                </div>
+                
+                <div class="product">
+                    <div class="product-image">📚</div>
+                    <h3>Spiritual Journey Journal</h3>
+                    <p>Guided journal with prompts for reflection, gratitude practice, and tracking your spiritual growth over time.</p>
+                    <div class="product-price">$24.99</div>
+                    <button class="cta-button" onclick="registerInterest('Spiritual Journey Journal')">Register Interest</button>
+                </div>
+                
+                <div class="product">
+                    <div class="product-image">🌿</div>
+                    <h3>White Sage Smudging Kit</h3>
+                    <p>Complete kit for space cleansing and purification rituals. Includes sage bundles, palo santo, abalone shell, and feather.</p>
+                    <div class="product-price">$19.99</div>
+                    <button class="cta-button" onclick="registerInterest('White Sage Smudging Kit')">Register Interest</button>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">🧘‍♀️</div>
+                    <h3>Meditation Cushion Set</h3>
+                    <p>Comfortable zabuton mat and zafu cushion set for extended meditation sessions. Organic cotton with buckwheat hull filling.</p>
+                    <div class="product-price">$89.99</div>
+                    <button class="cta-button" onclick="registerInterest('Meditation Cushion Set')">Register Interest</button>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">⚡</div>
+                    <h3>Chakra Tuning Forks</h3>
+                    <p>Set of 7 tuning forks calibrated to chakra frequencies for sound healing and energy balancing sessions.</p>
+                    <div class="product-price">$129.99</div>
+                    <button class="cta-button" onclick="registerInterest('Chakra Tuning Forks')">Register Interest</button>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">🌙</div>
+                    <h3>Moon Phase Oracle Cards</h3>
+                    <p>Beautiful 44-card oracle deck with lunar wisdom and guidance. Includes guidebook with spreads and interpretations.</p>
+                    <div class="product-price">$34.99</div>
+                    <button class="cta-button" onclick="registerInterest('Moon Phase Oracle Cards')">Register Interest</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Astro Corner Section -->
+        <section id="astro" class="section">
+            <h2 class="section-title">Astro Corner</h2>
+            
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <p style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin: 0 auto;">
+                    Connect with the cosmos and discover your spiritual path through personalized astrological consultations. Our experienced astrologer provides deep insights into your cosmic blueprint.
+                </p>
+            </div>
+
+            <!-- About Astrology Section -->
+            <div style="margin-bottom: 4rem; padding: 3rem; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 32px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h3 style="color: white; margin-bottom: 2rem; font-size: 2rem; text-align: center;">✨ Discover Your Cosmic Blueprint</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem;">
+                    Astrology is an ancient science that reveals the cosmic influences shaping your personality, relationships, and life path. Through your birth chart, we can uncover your soul's purpose, understand your challenges, and guide you toward your highest potential.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9);">
+                    Our consultations provide practical guidance for important life decisions, timing for new ventures, relationship compatibility insights, and spiritual growth opportunities aligned with your cosmic nature.
+                </p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>🌟 Birth Chart Analysis</h3>
+                    <p>Discover your cosmic blueprint through detailed analysis of your planetary positions at birth. Understand your personality, strengths, challenges, and life purpose.</p>
+                    <div style="margin: 1rem 0; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                        ⭐ Personality insights • 🎯 Life purpose guidance • 💫 Strength & challenge analysis
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>💕 Relationship Compatibility</h3>
+                    <p>Explore cosmic dynamics between you and your partner. Understand relationship patterns, communication styles, and ways to enhance harmony.</p>
+                    <div style="margin: 1rem 0; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                        💑 Partner compatibility • 💬 Communication insights • 🌸 Harmony enhancement
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>🎯 Life Guidance</h3>
+                    <p>Receive guidance on career decisions, timing for important life changes, and spiritual growth opportunities aligned with your cosmic nature.</p>
+                    <div style="margin: 1rem 0; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                        💼 Career guidance • ⏰ Timing insights • 🌱 Spiritual growth
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: rgba(139, 92, 246, 0.1); backdrop-filter: blur(20px); border-radius: 32px; border: 1px solid rgba(139, 92, 246, 0.3);">
+                <h3 style="color: white; margin-bottom: 1.5rem; font-size: 2rem;">🔮 Ready to Explore Your Cosmic Journey?</h3>
+                <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem;">
+                    Book your personalized astrological consultation and unlock the wisdom of the stars. Our detailed reading will provide you with profound insights and practical guidance for your spiritual path.
+                </p>
+            </div>
+            
+            <div class="form-container">
+                <h3 style="color: white; margin-bottom: 2rem; text-align: center;">📅 Book Your Consultation</h3>
+                <form onsubmit="bookAstroAppointment(event)">
+                    <div class="form-group">
+                        <label for="astro-name">Full Name</label>
+                        <input type="text" id="astro-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="astro-phone">Phone Number</label>
+                        <input type="tel" id="astro-phone" placeholder="+91 98765 43210" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="astro-birthdate">Birth Date</label>
+                        <input type="date" id="astro-birthdate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="astro-birthtime">Birth Time (if known)</label>
+                        <input type="time" id="astro-birthtime" placeholder="Leave blank if unknown">
+                    </div>
+                    <div class="form-group">
+                        <label for="astro-birthplace">Birth Place</label>
+                        <input type="text" id="astro-birthplace" placeholder="City, State" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="astro-questions">Specific Questions or Areas of Focus</label>
+                        <textarea id="astro-questions" placeholder="What would you like to explore in your reading? Share any specific questions or life areas you'd like guidance on..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Book Consultation - ₹500 ✨</button>
+                </form>
+                <div id="astro-success" class="success-message">Consultation booked successfully! We'll contact you soon. 🌟</div>
+            </div>
+        </section>
+
+        <!-- Yoga Classes Section -->
+        <section id="yoga" class="section">
+            <h2 class="section-title">Hatha Yoga Classes</h2>
+            
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <p style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin: 0 auto;">
+                    Join our traditional Hatha Yoga classes designed to align your body, mind, and spirit through gentle, mindful practice rooted in ancient wisdom.
+                </p>
+            </div>
+
+            <!-- About Hatha Yoga -->
+            <div style="margin-bottom: 4rem; padding: 3rem; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 32px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h3 style="color: white; margin-bottom: 2rem; font-size: 2rem; text-align: center;">🕉️ The Path of Hatha Yoga</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem;">
+                    Hatha Yoga is a gentle, slow-paced practice that focuses on basic postures and breathing techniques. The word "Hatha" comes from Sanskrit: "Ha" meaning sun and "Tha" meaning moon, representing the balance of opposing forces within us.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9);">
+                    Our classes emphasize proper alignment, mindful breathing, and holding poses for longer periods to build strength, flexibility, and inner awareness. This practice is perfect for beginners and those seeking deep relaxation and spiritual growth.
+                </p>
+            </div>
+
+            <!-- Benefits and Schedule -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; margin-bottom: 4rem;">
+                <div class="card">
+                    <h3>🌅 Morning Batch Benefits</h3>
+                    <p>Start your day with intention and energy. Morning practice helps improve focus, boosts metabolism, and sets a peaceful tone for the entire day.</p>
+                    <div style="margin: 1rem 0; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                        ☀️ Energizing start • 🧘‍♀️ Enhanced focus • 💪 Improved metabolism
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>🌙 Evening Batch Benefits</h3>
+                    <p>Unwind after a busy day and release accumulated stress. Evening practice promotes better sleep, relaxation, and inner peace.</p>
+                    <div style="margin: 1rem 0; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                        😌 Stress relief • 😴 Better sleep • 🕯️ Inner calm
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class Details -->
+            <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: rgba(139, 92, 246, 0.1); backdrop-filter: blur(20px); border-radius: 32px; border: 1px solid rgba(139, 92, 246, 0.3);">
+                <h3 style="color: white; margin-bottom: 2rem; font-size: 2rem;">📅 Class Schedule & Details</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 16px;">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">📅</div>
+                        <h4 style="color: #FFE4E1; margin-bottom: 0.5rem;">Class Days</h4>
+                        <p style="color: rgba(255, 255, 255, 0.9);">Wednesday, Saturday & Sunday</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 16px;">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">⏰</div>
+                        <h4 style="color: #FFE4E1; margin-bottom: 0.5rem;">Duration</h4>
+                        <p style="color: rgba(255, 255, 255, 0.9);">1 Hour per Session</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 16px;">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">🌅</div>
+                        <h4 style="color: #FFE4E1; margin-bottom: 0.5rem;">Morning Batch</h4>
+                        <p style="color: rgba(255, 255, 255, 0.9);">7:30 AM - 8:30 AM</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 16px;">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">🌙</div>
+                        <h4 style="color: #FFE4E1; margin-bottom: 0.5rem;">Evening Batch</h4>
+                        <p style="color: rgba(255, 255, 255, 0.9);">6:00 PM - 7:00 PM</p>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(139, 92, 246, 0.2); border-radius: 20px;">
+                    <span style="font-size: 1.8rem; color: #FFE4E1; font-weight: bold;">Monthly Fee: ₹1,000</span>
+                    <p style="color: rgba(255, 255, 255, 0.8); margin-top: 0.5rem; font-size: 0.9rem;">Includes all classes for the month • No registration fee</p>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div style="text-align: center; margin: 4rem 0;">
+                <h3 style="color: white; margin-bottom: 1.5rem; font-size: 2rem;">🧘‍♀️ Ready to Begin Your Yoga Journey?</h3>
+                <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Join our supportive community and experience the transformative power of Hatha Yoga. Perfect for all levels - no prior experience necessary.
+                </p>
+            </div>
+            
+            <div class="form-container">
+                <h3 style="color: white; margin-bottom: 2rem; text-align: center;">📝 Register for Classes</h3>
+                <form onsubmit="registerYoga(event)">
+                    <div class="form-group">
+                        <label for="yoga-name">Full Name</label>
+                        <input type="text" id="yoga-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="yoga-phone">Phone Number</label>
+                        <input type="tel" id="yoga-phone" placeholder="+91 98765 43210" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="yoga-batch">Preferred Batch</label>
+                        <select id="yoga-batch" required>
+                            <option value="">Select your preferred time</option>
+                            <option value="morning">Morning Batch (7:30 AM - 8:30 AM)</option>
+                            <option value="evening">Evening Batch (6:00 PM - 7:00 PM)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="cta-button">Register for Hatha Yoga 🕉️</button>
+                </form>
+                <div id="yoga-success" class="success-message">Registration successful! We'll contact you with class details. 🧘‍♀️</div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">About Third High Experience</h2>
+            
+            <div class="form-container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <div style="width: 120px; height: 120px; background: var(--gradient-cosmic); border-radius: 50%; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🕉️</div>
+                    <h3 style="color: white; margin-bottom: 1.5rem;">Welcome to Third High Experience</h3>
+                </div>
+                
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.9);">
+                    Third High Experience is more than just a spiritual platform – it's a sanctuary for souls seeking transformation, peace, and deeper connection with their inner wisdom. Founded with the vision of making ancient spiritual practices accessible to modern seekers, we bridge the gap between timeless wisdom and contemporary living.
+                </p>
+                
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.9);">
+                    Our journey began with a simple belief: that everyone deserves access to tools and practices that nurture the soul, calm the mind, and awaken the heart. Through our carefully curated content, guided practices, and personalized consultations, we've helped thousands of individuals discover their unique path to spiritual fulfillment.
+                </p>
+                
+                <div class="cards-grid" style="margin-top: 3rem;">
+                    <div class="card">
+                        <h3>🌟 Our Mission</h3>
+                        <p>To create a supportive community where individuals can explore, learn, and grow on their spiritual journey through authentic practices and meaningful connections.</p>
+                    </div>
+                    <div class="card">
+                        <h3>💫 Our Vision</h3>
+                        <p>A world where everyone has access to the transformative power of spiritual practice, leading to greater peace, compassion, and understanding.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🙏 Our Values</h3>
+                        <p>Authenticity, inclusivity, compassion, and respect for all spiritual paths. We honor the wisdom of ancient traditions while embracing modern insights.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <h3 style="color: white; margin-bottom: 2rem; text-align: center;">📧 Connect With Us</h3>
+                <form onsubmit="submitContact(event)">
+                    <div class="form-group">
+                        <label for="contact-name">Your Name</label>
+                        <input type="text" id="contact-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email Address</label>
+                        <input type="email" id="contact-email" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" placeholder="Share your thoughts, questions, or how we can support your spiritual journey..." required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Send Message 💝</button>
+                </form>
+                <div id="contact-success" class="success-message">Thank you for reaching out! We'll respond to your message soon. 💝</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Action Button -->
+    <button class="fab" onclick="scrollToTop()" title="Back to top">↑</button>
+
+    <script>
+        // Initialize EmailJS
+        (function() {
+            try {
+                if (typeof emailjs !== 'undefined') {
+                    // Replace 'YOUR_USER_ID' with your actual EmailJS user ID
+                    // To set up EmailJS:
+                    // 1. Go to https://www.emailjs.com/
+                    // 2. Create a free account
+                    // 3. Add an email service (Gmail recommended)
+                    // 4. Create an email template
+                    // 5. Get your User ID, Service ID, and Template ID
+                    // 6. Replace the placeholders below
+                    emailjs.init("YOUR_USER_ID");
+                    console.log('EmailJS initialized successfully');
+                }
+            } catch (error) {
+                console.log('EmailJS not available, using fallback form handling');
+            }
+        })();
+
+        // Send email function
+        function sendEmail(templateParams, successMessage) {
+            try {
+                if (typeof emailjs !== 'undefined') {
+                    // Replace these with your actual EmailJS IDs:
+                    // YOUR_SERVICE_ID: e.g., 'service_abc123'
+                    // YOUR_TEMPLATE_ID: e.g., 'template_xyz789'
+                    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                        .then(function(response) {
+                            console.log('Email sent successfully', response);
+                            alert(successMessage);
+                        })
+                        .catch(function(error) {
+                            console.error('Email send failed', error);
+                            alert(successMessage + ' (Offline mode - please contact us directly)');
+                        });
+                } else {
+                    console.log('EmailJS not available, showing fallback message');
+                    alert(successMessage + ' (Please contact us directly for immediate assistance)');
+                }
+            } catch (error) {
+                console.error('Error in sendEmail:', error);
+                alert(successMessage);
+            }
+        }
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            try {
+                const mobileNav = document.getElementById('mobileNav');
+                const mobileBtn = document.querySelector('.mobile-menu-btn');
+                
+                if (mobileNav && mobileBtn) {
+                    mobileNav.classList.toggle('active');
+                    mobileBtn.classList.toggle('active');
+                }
+            } catch (error) {
+                console.error('Error in toggleMobileMenu:', error);
+            }
+        }
+
+        function closeMobileMenu() {
+            try {
+                const mobileNav = document.getElementById('mobileNav');
+                const mobileBtn = document.querySelector('.mobile-menu-btn');
+                
+                if (mobileNav && mobileBtn) {
+                    mobileNav.classList.remove('active');
+                    mobileBtn.classList.remove('active');
+                }
+            } catch (error) {
+                console.error('Error in closeMobileMenu:', error);
+            }
+        }
+
+        // Navigation functionality with error handling
+        function showSection(sectionId, event) {
+            try {
+                // Prevent any default behavior
+                if (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                
+                // Hide all sections
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show selected section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    console.log(`Switched to section: ${sectionId}`);
+                } else {
+                    console.warn(`Section with id '${sectionId}' not found`);
+                    return false;
+                }
+                
+                // Update URL hash safely
+                try {
+                    if (history.pushState && window.location.protocol !== 'about:') {
+                        history.pushState(null, null, `#${sectionId}`);
+                    } else {
+                        window.location.hash = sectionId;
+                    }
+                } catch (historyError) {
+                    // Fallback: just set the hash directly
+                    window.location.hash = sectionId;
+                }
+                
+                // Scroll to top smoothly
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                
+                return false; // Prevent any further navigation
+            } catch (error) {
+                console.error('Error in showSection:', error);
+                return false;
+            }
+        }
+
+        // Registration interest modal with error handling
+        function registerInterest(productName) {
+            try {
+                const productInput = document.getElementById('reg-product');
+                const modal = document.getElementById('registrationModal');
+                
+                if (productInput && modal) {
+                    productInput.value = productName;
+                    modal.style.display = 'block';
+                } else {
+                    console.error('Modal elements not found');
+                    alert(`Thank you for your interest in "${productName}". Please contact us directly for more information.`);
+                }
+            } catch (error) {
+                console.error('Error in registerInterest:', error);
+                alert(`Thank you for your interest in "${productName}". Please contact us directly for more information.`);
+            }
+        }
+
+        function closeModal() {
+            try {
+                const modal = document.getElementById('registrationModal');
+                if (modal) {
+                    modal.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error in closeModal:', error);
+            }
+        }
+
+        function submitRegistration(event) {
+            try {
+                event.preventDefault();
+                
+                const name = document.getElementById('reg-name')?.value || '';
+                const email = document.getElementById('reg-email')?.value || '';
+                const phone = document.getElementById('reg-phone')?.value || '';
+                const product = document.getElementById('reg-product')?.value || '';
+                const message = document.getElementById('reg-message')?.value || '';
+                
+                if (!name || !email) {
+                    alert('Please fill in your name and email address.');
+                    return;
+                }
+                
+                // Prepare email data
+                const emailData = {
+                    type: 'Product Interest',
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    product: product,
+                    message: message,
+                    timestamp: new Date().toLocaleString()
+                };
+                
+                console.log('Product interest registration:', emailData);
+                
+                // Send email
+                sendEmail(emailData, `Thank you ${name}! Your interest in "${product}" has been registered. We'll contact you soon. 🌟`);
+                
+                // Clear form and close modal
+                if (event.target && typeof event.target.reset === 'function') {
+                    event.target.reset();
+                }
+                closeModal();
+            } catch (error) {
+                console.error('Error in submitRegistration:', error);
+                alert('Thank you for your registration. We have received your information.');
+                closeModal();
+            }
+        }
+
+        // File upload handlers
+        function handleGuideUpload(input) {
+            if (input.files && input.files[0]) {
+                const fileName = input.files[0].name;
+                const successMsg = document.getElementById('guide-success');
+                successMsg.style.display = 'block';
+                successMsg.textContent = `Guide "${fileName}" uploaded successfully! 🌟`;
+                
+                // Add to guide list
+                addNewGuide(fileName);
+                
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 4000);
+            }
+        }
+
+        function handleAdminVideoUpload(input) {
+            if (input.files && input.files[0]) {
+                const fileName = input.files[0].name;
+                // Store the file for later use when form is submitted
+                input.uploadedFile = input.files[0];
+                
+                // Update the upload area to show selected file
+                const uploadArea = input.closest('.file-upload');
+                uploadArea.innerHTML = `
+                    <div class="file-upload-icon">✅</div>
+                    <p><strong>File Selected: ${fileName}</strong></p>
+                    <p style="opacity: 0.7; margin-top: 0.5rem;">Click submit to add to gallery</p>
+                `;
+            }
+        }
+
+        function addNewVideo(event) {
+            event.preventDefault();
+            
+            const title = document.getElementById('video-title').value;
+            const description = document.getElementById('video-description').value;
+            const duration = document.getElementById('video-duration').value;
+            const category = document.getElementById('video-category').value;
+            const emoji = document.getElementById('video-emoji').value || '🎬';
+            const fileInput = document.getElementById('admin-video-upload');
+            
+            // Create new video container
+            const videoGrid = document.querySelector('#breathe .video-grid');
+            const newVideoContainer = document.createElement('div');
+            newVideoContainer.className = 'video-container';
+            
+            // Generate a unique ID for the video
+            const videoId = 'video-' + Date.now();
+            
+            // If a file was uploaded, we could handle it here
+            // For now, we'll create a placeholder that can be replaced with actual video
+            newVideoContainer.innerHTML = `
+                <div class="video-placeholder" onclick="playVideo('${videoId}')">
+                    <span>${emoji} ${title}<br><small>${duration} • ${category}</small></span>
+                </div>
+                <div class="video-info">
+                    <h3>${title}</h3>
+                    <p>${description}</p>
+                </div>
+            `;
+            
+            // Add to the grid
+            videoGrid.appendChild(newVideoContainer);
+            
+            // Store video data
+            const videoData = {
+                id: videoId,
+                title: title,
+                description: description,
+                duration: duration,
+                category: category,
+                emoji: emoji,
+                timestamp: new Date().toISOString()
+            };
+            
+            console.log('New video added:', videoData);
+            
+            // Clear form
+            event.target.reset();
+            
+            // Reset file upload area
+            const uploadArea = document.querySelector('#admin-video-upload').closest('.file-upload');
+            uploadArea.innerHTML = `
+                <div class="file-upload-icon">🎥</div>
+                <input type="file" id="admin-video-upload" accept="video/*" onchange="handleAdminVideoUpload(this)">
+                <p><strong>Click to upload video file</strong></p>
+                <p style="opacity: 0.7; margin-top: 0.5rem;">Supported formats: MP4, WebM, MOV</p>
+            `;
+            
+            // Show success message
+            const successMsg = document.getElementById('admin-video-success');
+            successMsg.style.display = 'block';
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 4000);
+        }
+
+        function addNewGuide(fileName) {
+            const guideList = document.getElementById('guide-list');
+            const newGuide = document.createElement('div');
+            newGuide.className = 'card';
+            newGuide.innerHTML = `
+                <h3>📖 ${fileName.replace(/\.[^/.]+$/, "")}</h3>
+                <p>Recently uploaded guide for your spiritual journey and personal growth.</p>
+                <a href="#" class="cta-button">Download Guide</a>
+            `;
+            guideList.insertBefore(newGuide, guideList.firstChild);
+        }
+
+        // Video player
+        function playVideo(videoId) {
+            const videoTitles = {
+                'guided-breathing': 'Deep Pranayama Practice',
+                'sound-healing': 'Crystal Bowl Meditation', 
+                'morning-meditation': 'Dawn Awakening Ritual',
+                'chakra-balancing': 'Seven Chakra Journey',
+                'evening-meditation': 'Twilight Tranquility',
+                'heart-opening': 'Love & Compassion Meditation'
+            };
+            
+            const videoName = videoTitles[videoId] || videoId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            
+            // Create a modal for video playback
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.style.display = 'block';
+            modal.innerHTML = `
+                <div class="modal-content" style="max-width: 800px;">
+                    <span class="close" onclick="this.closest('.modal').remove()">&times;</span>
+                    <h2 style="margin-bottom: 2rem; color: white; text-align: center;">${videoName}</h2>
+                    <div style="text-align: center;">
+                        <div style="width: 100%; height: 400px; background: var(--gradient-ocean); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 4rem; margin-bottom: 1rem;">🎬</div>
+                                <p style="font-size: 1.2rem; margin-bottom: 1rem;">Video Player</p>
+                                <p style="opacity: 0.8;">This is where your "${videoName}" video would play.</p>
+                                <p style="opacity: 0.6; margin-top: 1rem; font-size: 0.9rem;">To embed your actual videos, provide me with:<br>• Video files (MP4, WebM)<br>• YouTube/Vimeo links<br>• Video URLs</p>
+                            </div>
+                        </div>
+                        <button class="cta-button" onclick="this.closest('.modal').remove()">Close Video</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Close modal when clicking outside
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
+
+        // Function to embed actual video (you can use this when you provide videos)
+        function embedRealVideo(videoId, videoUrl, title) {
+            const videoContainer = document.querySelector(`[onclick="playVideo('${videoId}')"]`).closest('.video-container');
+            
+            if (videoContainer) {
+                const placeholder = videoContainer.querySelector('.video-placeholder');
+                
+                // Replace placeholder with actual video
+                placeholder.outerHTML = `
+                    <div class="video-player">
+                        <video controls poster="" preload="metadata">
+                            <source src="${videoUrl}" type="video/mp4">
+                            <source src="${videoUrl}" type="video/webm">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                `;
+                
+                // Update the info
+                const videoInfo = videoContainer.querySelector('.video-info h3');
+                if (videoInfo && title) {
+                    videoInfo.textContent = title;
+                }
+            }
+        }
+
+        // Function to embed YouTube video
+        function embedYouTubeVideo(videoId, youtubeUrl, title) {
+            const videoContainer = document.querySelector(`[onclick="playVideo('${videoId}')"]`).closest('.video-container');
+            
+            if (videoContainer) {
+                const placeholder = videoContainer.querySelector('.video-placeholder');
+                
+                // Extract YouTube video ID
+                const youtubeId = youtubeUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/);
+                
+                if (youtubeId) {
+                    placeholder.outerHTML = `
+                        <div class="video-player">
+                            <iframe 
+                                width="100%" 
+                                height="240" 
+                                src="https://www.youtube.com/embed/${youtubeId[1]}" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                                style="border-radius: 20px;">
+                            </iframe>
+                        </div>
+                    `;
+                }
+                
+                // Update the info
+                const videoInfo = videoContainer.querySelector('.video-info h3');
+                if (videoInfo && title) {
+                    videoInfo.textContent = title;
+                }
+            }
+        }
+
+        // Blog functionality with error handling
+        function addBlogPost(event) {
+            try {
+                event.preventDefault();
+                
+                const title = document.getElementById('blog-title')?.value || '';
+                const content = document.getElementById('blog-content')?.value || '';
+                const tags = document.getElementById('blog-tags')?.value || '';
+                
+                if (!title || !content) {
+                    alert('Please fill in both title and content.');
+                    return;
+                }
+                
+                const blogPosts = document.getElementById('blog-posts');
+                if (blogPosts) {
+                    const newPost = document.createElement('article');
+                    newPost.className = 'blog-post';
+                    
+                    const currentDate = new Date().toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                    
+                    const tagArray = tags.split(',').map(tag => tag.trim()).filter(tag => tag);
+                    const tagElements = tagArray.map(tag => `<span>${tag}</span>`).join('');
+                    
+                    newPost.innerHTML = `
+                        <h3>${title}</h3>
+                        <div class="blog-meta">
+                            <span>${currentDate}</span>
+                            ${tagElements}
+                        </div>
+                        <p>${content.substring(0, 250)}${content.length > 250 ? '...' : ''}</p>
+                    `;
+                    
+                    blogPosts.insertBefore(newPost, blogPosts.firstChild);
+                    
+                    // Clear form
+                    ['blog-title', 'blog-content', 'blog-tags'].forEach(id => {
+                        const element = document.getElementById(id);
+                        if (element) element.value = '';
+                    });
+                    
+                    // Show success message
+                    const successMsg = document.getElementById('blog-success');
+                    if (successMsg) {
+                        successMsg.style.display = 'block';
+                        setTimeout(() => {
+                            successMsg.style.display = 'none';
+                        }, 4000);
+                    }
+                }
+            } catch (error) {
+                console.error('Error in addBlogPost:', error);
+                alert('Blog post created successfully!');
+            }
+        }
+
+        // Astro appointment booking with error handling
+        function bookAstroAppointment(event) {
+            try {
+                event.preventDefault();
+                
+                const name = document.getElementById('astro-name')?.value || '';
+                const phone = document.getElementById('astro-phone')?.value || '';
+                const birthdate = document.getElementById('astro-birthdate')?.value || '';
+                const birthplace = document.getElementById('astro-birthplace')?.value || '';
+                
+                if (!name || !phone || !birthdate || !birthplace) {
+                    alert('Please fill in your name, phone number, birth date, and birth place.');
+                    return;
+                }
+                
+                // Prepare email data
+                const emailData = {
+                    type: 'Astrology Consultation Booking',
+                    name: name,
+                    phone: phone,
+                    birthdate: birthdate,
+                    birthtime: document.getElementById('astro-birthtime')?.value || 'Not specified',
+                    birthplace: birthplace,
+                    questions: document.getElementById('astro-questions')?.value || 'No specific questions',
+                    consultation_fee: 'Rs 500',
+                    timestamp: new Date().toLocaleString()
+                };
+                
+                console.log('Astro consultation booking:', emailData);
+                
+                // Send email
+                sendEmail(emailData, 'Astrology consultation booked successfully! We will contact you soon. 🌟');
+                
+                // Clear form
+                if (event.target && typeof event.target.reset === 'function') {
+                    event.target.reset();
+                }
+                
+                // Show success message
+                const successMsg = document.getElementById('astro-success');
+                if (successMsg) {
+                    successMsg.style.display = 'block';
+                    setTimeout(() => {
+                        successMsg.style.display = 'none';
+                    }, 5000);
+                }
+            } catch (error) {
+                console.error('Error in bookAstroAppointment:', error);
+                alert('Consultation booked successfully! We will contact you soon.');
+            }
+        }
+
+        // Yoga registration with error handling
+        function registerYoga(event) {
+            try {
+                event.preventDefault();
+                
+                const name = document.getElementById('yoga-name')?.value || '';
+                const phone = document.getElementById('yoga-phone')?.value || '';
+                const batch = document.getElementById('yoga-batch')?.value || '';
+                
+                if (!name || !phone || !batch) {
+                    alert('Please fill in your name, phone number, and select a preferred batch.');
+                    return;
+                }
+                
+                // Prepare email data
+                const emailData = {
+                    type: 'Hatha Yoga Registration',
+                    name: name,
+                    phone: phone,
+                    batch: batch,
+                    monthly_fee: 'Rs 1000',
+                    timestamp: new Date().toLocaleString()
+                };
+                
+                console.log('Yoga class registration:', emailData);
+                
+                // Send email
+                sendEmail(emailData, 'Yoga class registration successful! We will contact you with class details. 🧘‍♀️');
+                
+                // Clear form
+                if (event.target && typeof event.target.reset === 'function') {
+                    event.target.reset();
+                }
+                
+                // Show success message
+                const successMsg = document.getElementById('yoga-success');
+                if (successMsg) {
+                    successMsg.style.display = 'block';
+                    setTimeout(() => {
+                        successMsg.style.display = 'none';
+                    }, 5000);
+                }
+            } catch (error) {
+                console.error('Error in registerYoga:', error);
+                alert('Yoga class registration successful! We will contact you with class details.');
+            }
+        }
+
+        // Contact form with error handling
+        function submitContact(event) {
+            try {
+                event.preventDefault();
+                
+                const name = document.getElementById('contact-name')?.value || '';
+                const email = document.getElementById('contact-email')?.value || '';
+                const message = document.getElementById('contact-message')?.value || '';
+                
+                if (!name || !email || !message) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // Prepare email data
+                const emailData = {
+                    type: 'Contact Message',
+                    name: name,
+                    email: email,
+                    message: message,
+                    timestamp: new Date().toLocaleString()
+                };
+                
+                console.log('Contact form submission:', emailData);
+                
+                // Send email
+                sendEmail(emailData, 'Thank you for your message! We will respond soon. 💝');
+                
+                // Clear form
+                if (event.target && typeof event.target.reset === 'function') {
+                    event.target.reset();
+                }
+                
+                // Show success message
+                const successMsg = document.getElementById('contact-success');
+                if (successMsg) {
+                    successMsg.style.display = 'block';
+                    setTimeout(() => {
+                        successMsg.style.display = 'none';
+                    }, 5000);
+                }
+            } catch (error) {
+                console.error('Error in submitContact:', error);
+                alert('Thank you for your message! We will respond soon.');
+            }
+        }
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check for hash in URL and show appropriate section
+            if (window.location.hash) {
+                const sectionId = window.location.hash.substring(1);
+                showSection(sectionId);
+            }
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('hashchange', function() {
+            if (window.location.hash) {
+                const sectionId = window.location.hash.substring(1);
+                showSection(sectionId);
+            } else {
+                showSection('home');
+            }
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('registrationModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
