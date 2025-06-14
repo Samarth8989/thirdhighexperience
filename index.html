@@ -230,7 +230,7 @@
         .mobile-nav {
             display: none;
             position: fixed;
-            top: 40px;
+            top: 50px;
             left: 0;
             right: 0;
             background: rgba(10, 14, 26, 0.95);
@@ -905,7 +905,7 @@
             /* Hero section */
             .hero {
                 padding: 3rem 1.5rem;
-                margin: 1rem;
+                margin: 1.5rem 1rem 1rem;
                 border-radius: 20px;
             }
 
@@ -923,12 +923,13 @@
             /* Section spacing */
             .section {
                 padding: 2rem 0;
+                margin-top: 1rem; /* Extra clearance from header */
             }
 
             .section-title {
                 font-size: 2rem;
                 margin-bottom: 2rem;
-                padding: 0 1rem;
+                padding: 1rem 1rem 0; /* Extra top padding */
             }
 
             /* Cards grid */
@@ -1105,7 +1106,7 @@
             h2 {
                 font-size: 1.8rem;
                 line-height: 1.3;
-                padding: 0 1rem;
+                padding: 1rem 1rem 0; /* Extra top padding */
             }
 
             h3 {
@@ -1150,7 +1151,7 @@
         @media (max-width: 480px) {
             .hero {
                 padding: 2rem 1rem;
-                margin: 0.5rem;
+                margin: 1.5rem 0.5rem 0.5rem; /* Extra top margin */
             }
 
             .hero h1 {
@@ -1173,7 +1174,7 @@
 
             .section-title {
                 font-size: 1.8rem;
-                padding: 0 0.5rem;
+                padding: 1rem 0.5rem 0; /* Extra top padding for small screens */
             }
 
             .modal-content {
@@ -1200,9 +1201,10 @@
                 font-size: 1.2rem;
             }
 
-            /* Extra bottom spacing for small screens */
+            /* Extra spacing for small screens to prevent header overlap */
             main {
                 padding-bottom: 4.5rem;
+                margin-top: 45px;
             }
 
             .section:last-child {
@@ -1227,12 +1229,12 @@
             }
 
             main {
-                margin-top: 35px;
+                margin-top: 45px;
                 padding-bottom: 4rem; /* Bottom spacing for FAB in landscape */
             }
 
             .mobile-nav.active + main {
-                margin-top: 35px;
+                margin-top: 45px;
             }
 
             .fab {
